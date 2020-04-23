@@ -5,7 +5,7 @@ android {
     buildToolsVersion "29.0.3"
 
     defaultConfig {
-        applicationId "com.meemory.emoji"
+        applicationId "com.memorysweetgame.emoji"
         minSdkVersion 16
         targetSdkVersion 29
         versionCode 1
@@ -14,15 +14,42 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+
+        production {
+            storeFile file("../keystore/android_release.keystore")
+            storePassword "emoji_sweet_release_pass"
+            keyAlias "emoji_sweet_release"
+            keyPassword "emoji_sweet_release_pass"
+        }
+
+        debug {
+            storeFile file("../keystore/android_debug.keystore")
+            storePassword "emoji_sweet_debug_pass"
+            keyAlias "emoji_sweet_debug"
+            keyPassword "emoji_sweet_debug_pass"
+        }
+
+    }
+
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            debuggable false
+            signingConfig signingConfigs.production
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+
+        debug {
+            signingConfig signingConfigs.debug
+        }
     }
+
+
     compileOptions {
-        sourceCompatibility = 1.8
-        targetCompatibility = 1.8
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
     }
 
 }

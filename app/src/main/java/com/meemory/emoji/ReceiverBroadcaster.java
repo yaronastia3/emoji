@@ -41,14 +41,11 @@ public class ReceiverBroadcaster extends BroadcastReceiver {
         }
 
 
-        Bitmap resource =  BitmapFactory.decodeResource(context.getResources(), R.drawable.spidorgame);
 
         return new NotificationCompat.Builder(context, "default")
                 .setSmallIcon(R.mipmap.ic_launcher)
                 .setContentIntent(pendingIntent)
                 .setContentTitle(context.getResources().getString(R.string.push))
-                .setLargeIcon(resource)
-                .setStyle(new NotificationCompat.BigPictureStyle().bigPicture(resource).setBigContentTitle(context.getResources().getString(R.string.push)))
                 .setAutoCancel(true);
     }
 }

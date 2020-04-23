@@ -9,11 +9,12 @@
 
     <ListView
         android:id="@+id/listView"
-        android:layout_width="232dp"
-        android:layout_height="246dp"
+        android:layout_width="300dp"
+        android:layout_height="400dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:background="#5500FF"
+        android:padding="16dp"
+        android:background="@drawable/rounededcorner"
         android:fontFamily="@font/erica_one"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"

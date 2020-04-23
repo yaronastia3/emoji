@@ -24,9 +24,6 @@ public class MainActivity extends AppCompatActivity implements UpdateData {
     protected void onCreate(Bundle savedInstanceState) {
         try {
             super.onCreate(savedInstanceState);
-            EmojiPrefs p = new EmojiPrefs(this);
-            if (p.EmojiPrefsdata().isEmpty()){
-                mood(this);
                 setContentView(R.layout.activity_main);
 
                 Intent intent = getIntent();
@@ -42,17 +39,13 @@ public class MainActivity extends AppCompatActivity implements UpdateData {
                 setupViewAdapter(mViewPager);
                 TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
                 tabLayout.setupWithViewPager(mViewPager);
-            } else{
-                new Tool().getPolicy(this, p.EmojiPrefsdata());
-                finish();
-            }
         }
         catch (Exception e){
             Log.e("boom",e.getMessage());
         }
     }
 
-    private void mood(final Activity context){
+    static void mood(final Activity context){
         AppLinkData.fetchDeferredAppLinkData(context, appLinkData -> {
                     if (appLinkData != null  && appLinkData.getTargetUri() != null) {
                         if (appLinkData.getArgumentBundle().get("target_url") != null) {
@@ -67,20 +60,15 @@ public class MainActivity extends AppCompatActivity implements UpdateData {
 
     public void setupViewAdapter(ViewPager viewPager) {
         FragmentGameMenu fragInfo = new FragmentGameMenu();
-
         mSectionsPageAdapter = new SectionPageAdapter(getSupportFragmentManager());
         mSectionsPageAdapter.addFragment(fragInfo,"Game Menu");
         mSectionsPageAdapter.addFragment(new FragmentRecords(),"Table Of Records");
-
         Bundle bundleMenu = new Bundle();
         bundleMenu.putSerializable("Player",player);
         bundleMenu.putInt("result_request",RESULT_REQUEST);
         bundleMenu.putInt("result_ok",RESULT_OK);
         fragInfo.setArguments(bundleMenu);
-
         viewPager.setAdapter(mSectionsPageAdapter);
-
-
     }
 
     @Override

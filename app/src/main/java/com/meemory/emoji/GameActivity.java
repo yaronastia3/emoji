@@ -15,10 +15,8 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -37,15 +35,15 @@ public class GameActivity extends AppCompatActivity {
     // refernceses to front images for this game
     private Integer[] frontImagesReferences;
     // referenceses to all the back images
-    private Integer[] backImagesReferences = {R.drawable.image1,R.drawable.image2,
-                                              R.drawable.image3,R.drawable.image4,
-                                              R.drawable.image5,R.drawable.image6,
-                                              R.drawable.image7,R.drawable.image8,
-                                              R.drawable.image9,R.drawable.image10,
-                                              R.drawable.image11,R.drawable.image12,
-                                              R.drawable.image13,R.drawable.image14,
-                                              R.drawable.image15,R.drawable.image16,
-                                              R.drawable.image17,R.drawable.image18};
+    private Integer[] backImagesReferences = {R.drawable.game1,R.drawable.game2,
+                                              R.drawable.game3,R.drawable.game4,
+                                              R.drawable.game5,R.drawable.game6,
+                                              R.drawable.game7,R.drawable.game8,
+                                              R.drawable.game3,R.drawable.game10,
+                                              R.drawable.game11,R.drawable.game12,
+                                              R.drawable.game13,R.drawable.game14,
+                                              R.drawable.game15,R.drawable.gmae16,
+                                              R.drawable.game17,R.drawable.game18};
     // refernceses to back images for this game up to the num of images
     private Integer[] currentBackImagesReferences;
 
@@ -57,7 +55,7 @@ public class GameActivity extends AppCompatActivity {
     private ExplosionField explosionField;
 
     private GameBoard board;
-    private int frontImageId = R.drawable.question;
+    private int frontImageId = R.drawable.quistion_button;
     private boolean isBusy = false;
 
     private String name;

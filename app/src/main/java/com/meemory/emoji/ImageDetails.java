@@ -10,29 +10,29 @@ public class ImageDetails {
     private boolean isFlipped;
     private boolean isMatch;
 
-    public ImageDetails(int backDrawableId) {
+    ImageDetails(int backDrawableId) {
         this.backDrawableId = backDrawableId;
         this.isFlipped = false;
         this.isMatch = false;
     }
 
-    public int getBackDrawableId() {
+    int getBackDrawableId() {
         return backDrawableId;
     }
 
-    public boolean isFlipped() {
+    boolean isFlipped() {
         return isFlipped;
     }
 
-    public boolean isMatch() {
+    boolean isMatch() {
         return isMatch;
     }
 
-    public void setFlipped(boolean flipped) {
+    void setFlipped(boolean flipped) {
         isFlipped = flipped;
     }
 
-    public void setMatch(boolean match) {
+    void setMatch(boolean match) {
         isMatch = match;
     }
 

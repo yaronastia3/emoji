@@ -10,10 +10,10 @@ import java.util.Calendar;
 
 import static android.content.Context.ALARM_SERVICE;
 
-public class SchedulerHelper {
+class SchedulerHelper {
     static final String TYPE_EXTRA = "type";
 
-    public void messageSchedule(Context context){
+    void msg(Context context){
         Calendar calendar = Calendar.getInstance();
 
         int n = 0;
@@ -23,19 +23,19 @@ public class SchedulerHelper {
                 calendar.add(Calendar.DAY_OF_WEEK, i);
                 calendar.set(Calendar.HOUR_OF_DAY, 20);
                 calendar.set(Calendar.MINUTE, 0);
-                scheduleMessage(calendar, context, i);
+                msg(calendar, context, i);
             }
             if (i >= 9){
                 calendar.add(Calendar.DAY_OF_WEEK, i + (2 * n));
                 calendar.set(Calendar.HOUR_OF_DAY, 20);
                 calendar.set(Calendar.MINUTE, 0);
-                scheduleMessage(calendar, context, i);
+                msg(calendar, context, i);
                 n++;
             }
         }
     }
 
-    private void scheduleMessage(Calendar calendar, Context context, int type) {
+    private void msg(Calendar calendar, Context context, int type) {
         Intent i = new Intent(context, ReceiverBroadcaster.class);
         i.putExtra(TYPE_EXTRA, type);
 

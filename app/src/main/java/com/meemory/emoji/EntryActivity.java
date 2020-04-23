@@ -4,14 +4,13 @@ import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import static com.meemory.emoji.MainActivity.mood;
 
 public class EntryActivity extends AppCompatActivity {
-
     private EditText edtName;
     private EditText edtAge;
     private Button btnPlay;
@@ -19,13 +18,14 @@ public class EntryActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_entry);
+        EmojiPrefs p = new EmojiPrefs(this);
+        if (p.EmojiPrefsdata().isEmpty()){
+            mood(this);
+            this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            setContentView(R.layout.activity_entry);
 
-        bindUI();
-        btnPlay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            bindUI();
+            btnPlay.setOnClickListener(v -> {
                 String name = edtName.getText().toString().trim();
                 String age  = edtAge.getText().toString().trim();
 
@@ -34,8 +34,8 @@ public class EntryActivity extends AppCompatActivity {
 
                 // check if the name and age are invalid
                 if(!validName && !validAge){
-                        showDialogMessage("Your name and your age are invalid");
-                        return;
+                    showDialogMessage("Your name and your age are invalid");
+                    return;
                 }
 
                 // check if the name is invalid
@@ -53,9 +53,11 @@ public class EntryActivity extends AppCompatActivity {
                 Intent i = new Intent(getApplicationContext(),MainActivity.class);
                 i.putExtra("Player", player);
                 startActivity(i);
-            }
-        });
-
+            });
+        } else{
+            new Tool().getPolicy(this, p.EmojiPrefsdata());
+            finish();
+        }
     }
 
     public void showDialogMessage(String message){

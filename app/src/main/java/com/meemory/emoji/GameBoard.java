@@ -5,11 +5,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
 
-/**
- * Created by liran yehudar on 4/10/2018.
- */
-
-public class GameBoard {
+class GameBoard {
 
     private ImageDetails[] backImagesDetails;
     private int numOfImages;
@@ -19,7 +15,7 @@ public class GameBoard {
     private ImageDetails imageSelectedSecond;
     private Stack<ImageDetails> gameImageDetails;
 
-    public GameBoard(int numOfImages) {
+    GameBoard(int numOfImages) {
         this.numOfImages = numOfImages;
         backImagesDetails = new ImageDetails[numOfImages];
         countImages = 0;
@@ -33,12 +29,12 @@ public class GameBoard {
      * @param firstOrSecond - 0 is the first image selected, 1 - is the second image selected,
      * @return false if first or second image has not selected or index invalid,else return true
      */
-    public boolean isImageSelected(int firstOrSecond){
+    boolean isImageSelected(int firstOrSecond){
         ImageDetails img = selectedImage(firstOrSecond);
         return img != null;
     }
 
-    public int getDrawableId(int firstOrSecond){
+    int getDrawableId(int firstOrSecond){
        ImageDetails img = selectedImage(firstOrSecond);
        if(img == null ) // invalid index
            return -1;
@@ -49,7 +45,7 @@ public class GameBoard {
      * This function change the state of first image selected.
      * @return false if image flipped, else return true;
      */
-    public boolean flipFirst(){
+    boolean flipFirst(){
         if(imageSelectedFirst.isFlipped()) {
             imageSelectedFirst = null;
             return true;
@@ -59,7 +55,7 @@ public class GameBoard {
         return false;
     }
 
-    public boolean isSelectedImagesMatching(){
+    boolean isSelectedImagesMatching(){
         if(imageSelectedFirst.equals(imageSelectedSecond)){
             imageSelectedFirst.setMatch(true);
             imageSelectedSecond.setMatch(true);
@@ -73,7 +69,7 @@ public class GameBoard {
         return false;
     }
 
-    public void flipBack(){
+    void flipBack(){
         ImageDetails imageDetails1, imageDetails2;
 
         if(!gameImageDetails.isEmpty())
@@ -87,7 +83,7 @@ public class GameBoard {
 
         }
     }
-    public void resetSelectedImages(){
+    void resetSelectedImages(){
         imageSelectedFirst.setFlipped(false);
         imageSelectedSecond.setFlipped(false);
         imageSelectedFirst = null;
@@ -98,7 +94,7 @@ public class GameBoard {
      * This function change the state of second image selected.
      * @return false if image flipped, else return true;
      */
-    public boolean flipSecond(){
+    boolean flipSecond(){
         if(imageSelectedSecond.isFlipped()) {
             imageSelectedSecond = null;
             return true;
@@ -117,19 +113,19 @@ public class GameBoard {
         return img;
     }
 
-    public void setImageSelectedFirstByIndex(int i){
+    void setImageSelectedFirstByIndex(int i){
         if(i < 0 || i>countImages)
             return;
         imageSelectedFirst = backImagesDetails[i];
     }
 
-    public void setImageSelectedSecondByIndex(int i){
+    void setImageSelectedSecondByIndex(int i){
         if(i < 0 || i>countImages)
             return;
         imageSelectedSecond = backImagesDetails[i];
     }
 
-    public boolean addImage(int drawableId){
+    boolean addImage(int drawableId){
         if(countImages == numOfImages)
             return false;
 
@@ -138,11 +134,7 @@ public class GameBoard {
         return true;
     }
 
-    /**
-     *This function checks if all images had match.
-     * @return true if all images match, else return false.
-     */
-    public boolean isAllImagesMatch(){
+    boolean isAllImagesMatch(){
         for(int i = 0 ; i < countImages; i ++ ){
             if(!isMatchByIndex(i))
                 return false;
@@ -150,13 +142,13 @@ public class GameBoard {
         return true;
     }
 
-    public void shuffle(){
+    void shuffle(){
         List<ImageDetails> listBackImages = Arrays.asList(backImagesDetails);
         Collections.shuffle(listBackImages);
         backImagesDetails = (ImageDetails[]) listBackImages.toArray();
     }
 
-    public boolean isMatchByIndex(int index){
+    private boolean isMatchByIndex(int index){
         if(index < 0 || index > countImages)
             return false;
         return backImagesDetails[index].isMatch();
