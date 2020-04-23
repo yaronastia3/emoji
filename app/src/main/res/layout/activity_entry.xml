@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_sky"
+   >
+
+    <android.support.v7.widget.LinearLayoutCompat
+        android:layout_width="326dp"
+        android:layout_height="109dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="32dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.636"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.129">
+
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/erica_one"
+            android:text="Welcome To Emoji Memory Game!"
+            android:textColor="#E6F51B"
+            android:textSize="30dp"
+            android:textStyle="italic" />
+
+
+    </android.support.v7.widget.LinearLayoutCompat>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="291dp"
+        android:layout_height="264dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.721">
+
+
+        <EditText
+            android:id="@+id/edit_name"
+            android:layout_width="161dp"
+            android:layout_height="41dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="56dp"
+            android:ems="10"
+            android:hint="Enter your name"
+            android:inputType="textPersonName"
+            android:maxLength="15"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.826"
+            app:layout_constraintStart_toEndOf="@+id/txt_view_name"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/edit_age"
+            android:layout_width="160dp"
+            android:layout_height="39dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="24dp"
+            android:ems="10"
+            android:hint="Enter your age"
+            android:maxLength="4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edit_name"
+            android:layout_marginRight="16dp" />
+
+
+        <Button
+            android:id="@+id/btn_play"
+            android:layout_width="107dp"
+            android:layout_height="58dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="#5500FF"
+            android:fontFamily="@font/erica_one"
+            android:inputType="none"
+            android:text="Play"
+            android:textColor="#E6F51B"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edit_age" />
+
+        <TextView
+            android:id="@+id/txt_view_name"
+            android:layout_width="52dp"
+            android:layout_height="39dp"
+            android:layout_marginBottom="28dp"
+            android:layout_marginStart="16dp"
+            android:text="Name:"
+            android:textColor="#E6F51B"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/architects_daughter"
+            app:layout_constraintBottom_toTopOf="@+id/txt_view_age"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/txt_view_age"
+            android:layout_width="52dp"
+            android:layout_height="39dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/architects_daughter"
+            android:text="Age:"
+            android:textColor="#E6F51B"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/btn_play"
+            app:layout_constraintEnd_toStartOf="@+id/edit_age"
+            app:layout_constraintHorizontal_bias="0.404"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </android.support.constraint.ConstraintLayout>
+
+
+</android.support.constraint.ConstraintLayout>

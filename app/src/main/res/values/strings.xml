@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Sweet Emoji</string>
+    <string name="hey">Hey</string>
+    <string name="facebook_app_id">660920851144893</string>
+    <string name="fb_login_protocol_scheme">fb660920851144893</string>
+    <string name="change">change</string>
+    <string name="move">move</string>
+    <string name="listen_message">Start</string>
+    <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
+    <string name="push">Its time</string>
+</resources>
